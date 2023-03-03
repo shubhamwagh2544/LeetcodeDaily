@@ -2,6 +2,10 @@ package CODE2023.march2023;
 
 import java.util.Arrays;
 
+/*
+https://leetcode.com/problems/sort-an-array/description/
+ */
+
 public class Day1_LC912_Better {
     public static void mergeSort(int[] nums) {
         mergeSort(nums, 0, nums.length-1);
