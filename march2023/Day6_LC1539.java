@@ -1,4 +1,11 @@
 package CODE2023.march2023;
+
+import Arrays.ArrayInsertAtEnd;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /*
 https://leetcode.com/problems/kth-missing-positive-number/
  */
@@ -9,7 +16,8 @@ public class Day6_LC1539 {
         int k = 9;
         //int k = 5;
         //System.out.println(getKthNumberInSorted(array, k));     // brute
-        System.out.println(getKthNumberInSortedAnother(array, k));
+        //System.out.println(getKthNumberInSortedAnother(array, k));  // brute
+        System.out.println(getKthNumberInSortedAnotherBrute(array, k));     // brute
     }
     private static int getKthNumberInSorted(int[] array, int k) {
         for (int n : array) {
@@ -39,6 +47,20 @@ public class Day6_LC1539 {
         }
         if (j == array.length && !flag) {
             return array[array.length-1]+k;
+        }
+        return -1;
+    }
+
+    private static int getKthNumberInSortedAnotherBrute(int[] array, int k) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : array) {
+            set.add(num);
+        }
+        for (int i=1; i<=2000; i++) {
+            if (set.add(i)) {
+                k--;
+            }
+            if (k == 0) return i;
         }
         return -1;
     }
